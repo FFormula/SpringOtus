@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="quizParser" class="model.VerbsParser">
+    </bean>
+
+    <bean id="quizStorage" class="service.QuizStorage">
+        <constructor-arg name="filename" value="/verbs.csv" />
+        <constructor-arg name="parser" ref="quizParser" />
+    </bean>
+
+    <bean id="quizShuffler" class="service.QuizShuffler">
+        <constructor-arg name="storage" ref="quizStorage" />
+    </bean>
+
+    <bean id="dialog" class="service.Dialog">
+    </bean>
+
+    <bean id="exam" class="service.Exam">
+        <constructor-arg name="shuffler" ref="quizShuffler" />
+        <constructor-arg name="dialog" ref="dialog" />
+        <property name="questionsCount" value="3" />
+        <property name="welcomeMessage" value="Напишите перевод и все основные формы глаголов:" />
+        <property name="correctMessage" value="Правильно!" />
+        <property name="invalidMessage" value="Ошибка. Верный ответ" />
+        <property name="percentMessage" value="Ваш результат: %d%%" />
+    </bean>
+
+
+
+</beans>
