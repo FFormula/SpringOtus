@@ -1,7 +1,5 @@
 package service;
 
-import face.IDialog;
-
 import java.util.Scanner;
 
 public class Dialog implements IDialog {

@@ -1,7 +1,6 @@
 package service;
 
-import face.IQuizParser;
-import face.IQuiz;
+import model.Quiz;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -21,9 +20,9 @@ public class QuizStorage {
         return new BufferedReader(new InputStreamReader(stream));
     }
 
-    List<IQuiz> getQuizList() {
+    List<Quiz> getQuizList() {
         try (BufferedReader reader = getReader()) {
-            List<IQuiz> list = new ArrayList<>();
+            List<Quiz> list = new ArrayList<>();
             while (reader.ready())
                 list.add(parser.parse(reader.readLine()));
             return list;

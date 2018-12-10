@@ -1,17 +1,16 @@
-package model;
+package service;
 
-import face.IQuizParser;
-import face.IQuiz;
+import model.Quiz;
+import service.IQuizParser;
 
 public class VerbsParser implements IQuizParser {
 
     @Override
-    public IQuiz parse(String line) {
+    public Quiz parse(String line) {
         String[] cols = line.split(",", 4);
         if (cols.length != 4)
             throw new RuntimeException("Line must contains 4 fields: " + line);
-        return new Verb(
-                cols[0] + " " + cols[1] + " " + cols[2],
-                cols[3]);
+        return new Quiz(cols[3],
+                cols[0] + " " + cols[1] + " " + cols[2]);
     }
 }

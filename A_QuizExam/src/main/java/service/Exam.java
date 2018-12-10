@@ -1,7 +1,6 @@
 package service;
 
-import face.IDialog;
-import face.IQuiz;
+import model.Quiz;
 
 public class Exam {
     private final QuizShuffler shuffler;
@@ -29,7 +28,7 @@ public class Exam {
             return;
         dialog.print(welcomeMessage + "\n");
         int points = 0;
-        for (IQuiz quiz : shuffler.getRandomQuizList(questionsCount)) {
+        for (Quiz quiz : shuffler.getRandomQuizList(questionsCount)) {
             dialog.print(String.format("%20s: ", quiz.getQuestion()));
             String answer = dialog.input();
             if (answer.equals(quiz.getAnswer())) {

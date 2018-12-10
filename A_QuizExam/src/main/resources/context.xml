@@ -4,7 +4,7 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
         http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="quizParser" class="model.VerbsParser">
+    <bean id="quizParser" class="service.VerbsParser">
     </bean>
 
     <bean id="quizStorage" class="service.QuizStorage">

@@ -1,6 +1,6 @@
 package service;
 
-import face.IQuiz;
+import model.Quiz;
 import java.util.Collections;
 import java.util.List;
 
@@ -11,8 +11,8 @@ public class QuizShuffler {
         this.storage = storage;
     }
 
-    List<IQuiz> getRandomQuizList(int count) {
-        List<IQuiz> list = storage.getQuizList();
+    List<Quiz> getRandomQuizList(int count) {
+        List<Quiz> list = storage.getQuizList();
         if (count > list.size())
             count = list.size();
         Collections.shuffle(list);

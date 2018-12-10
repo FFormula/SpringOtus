@@ -1,7 +1,7 @@
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import service.Exam;
 
-class Program {
+public class Program {
 
     public static void main(String[] args) {
         ClassPathXmlApplicationContext context =
